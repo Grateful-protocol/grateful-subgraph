@@ -1,0 +1,17 @@
+[
+  {
+    "inputs": [],
+    "name": "InsolventUser",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InsufficientBalance",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "SolventUser",
+    "type": "error"
+  }
+]

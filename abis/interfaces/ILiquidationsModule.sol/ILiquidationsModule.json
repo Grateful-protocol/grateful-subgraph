@@ -1,0 +1,25 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "giverId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "creatorId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "liquidatorId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "liquidate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

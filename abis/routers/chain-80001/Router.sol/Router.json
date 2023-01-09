@@ -1,0 +1,21 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "bytes4",
+        "name": "sel",
+        "type": "bytes4"
+      }
+    ],
+    "name": "UnknownSelector",
+    "type": "error"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
+  }
+]

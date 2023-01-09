@@ -1,0 +1,98 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "profileId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "vaultId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "giverId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "vaultId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "canBeLiquidated",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "profileId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "vaultId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getFlow",
+    "outputs": [
+      {
+        "internalType": "int256",
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "giverId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "vaultId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getRemainingTimeToZero",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

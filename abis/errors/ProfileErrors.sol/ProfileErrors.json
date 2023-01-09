@@ -1,0 +1,17 @@
+[
+  {
+    "inputs": [],
+    "name": "InvalidProfile",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NonExistentProfile",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "UnauthorizedProfile",
+    "type": "error"
+  }
+]

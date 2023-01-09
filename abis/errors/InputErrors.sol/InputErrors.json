@@ -1,0 +1,22 @@
+[
+  {
+    "inputs": [],
+    "name": "ZeroAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroAmount",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroId",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroTime",
+    "type": "error"
+  }
+]

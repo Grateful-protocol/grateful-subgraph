@@ -1,0 +1,17 @@
+[
+  {
+    "inputs": [],
+    "name": "InsufficientAllowance",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidVault",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "VaultAlreadyInitialized",
+    "type": "error"
+  }
+]

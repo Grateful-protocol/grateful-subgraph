@@ -1,0 +1,22 @@
+[
+  {
+    "inputs": [],
+    "name": "AlreadySubscribed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidCreator",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidRate",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotSubscribed",
+    "type": "error"
+  }
+]
