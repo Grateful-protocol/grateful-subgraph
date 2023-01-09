@@ -1,5 +1,7 @@
-type ExampleEntity @entity {
-  id: ID!
-  block: Bytes!
-  count: BigInt!
+type Balance @entity {
+  id: Bytes!
+}
+
+type Subscription @entity {
+  id: Bytes!
 }
