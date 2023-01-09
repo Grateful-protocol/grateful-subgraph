@@ -1,0 +1,22 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Proxy
+    network: mumbai
+    source:
+      address: "0xCa1CbC0b702146924E1B7e607CA9eB33beF759ad"
+      abi: Proxy
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+
+      abis:
+        - name: Proxy
+          file: ./abis/Proxy.json
+      eventHandlers:
+
+      file: ./src/proxy.ts
