@@ -1,22 +1,49 @@
 specVersion: 0.0.5
+description: Grateful Mumbai
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: Proxy
+    name: FundsModule
     network: mumbai
     source:
       address: "0xCa1CbC0b702146924E1B7e607CA9eB33beF759ad"
-      abi: Proxy
+      abi: FundsModule
+      startBlock: 30547602
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-
+        - Balance
       abis:
-        - name: Proxy
-          file: ./abis/Proxy.json
+        - name: FundsModule
+          file: ./abis/modules/FundsModule.sol/FundsModule.json
       eventHandlers:
-
-      file: ./src/proxy.ts
+        - event: FundsDeposited(indexed bytes32,indexed bytes32,uint256,uint256)
+          handler: handleFundsDeposited
+        - event: FundsWithdrawn(indexed bytes32,indexed bytes32,uint256,uint256)
+          handler: handleFundsWithdrawn
+      file: ./src/funds.ts
+  - kind: ethereum
+    name: SubscriptionsModule
+    network: mumbai
+    source:
+      address: "0xCa1CbC0b702146924E1B7e607CA9eB33beF759ad"
+      abi: SubscriptionsModule
+      startBlock: 30547602
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Subscription
+      abis:
+        - name: SubscriptionsModule
+          file: ./abis/modules/SubscriptionsModule.sol/SubscriptionsModule.json
+      eventHandlers:
+        - event: SubscriptionStarted(indexed bytes32,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+          handler: handleSubscriptionStarted
+        - event: SubscriptionFinished(indexed bytes32,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+          handler: handleSubscriptionFinished
+      file: ./src/subscriptions.ts
