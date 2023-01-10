@@ -1,5 +1,18 @@
+type Profile @entity {
+  id: Bytes!
+}
+
+type Vault @entity {
+  id: Bytes!
+}
+
 type Balance @entity {
   id: Bytes!
+  vault: Vault!
+  profile: Profile!
+  amount: BigInt!
+  flow: BigInt!
+  lastUpdate: BigInt!
 }
 
 type Subscription @entity {
