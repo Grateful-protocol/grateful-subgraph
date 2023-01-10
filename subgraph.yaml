@@ -4,6 +4,26 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
+    name: VaultsModule
+    network: mumbai
+    source:
+      address: "0xCa1CbC0b702146924E1B7e607CA9eB33beF759ad"
+      abi: VaultsModule
+      startBlock: 30547602
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Vault
+      abis:
+        - name: VaultsModule
+          file: ./abis/modules/VaultsModule.sol/VaultsModule.json
+      eventHandlers:
+        - event: VaultAdded(bytes32,address)
+          handler: handleVaultAdded
+      file: ./src/vaults.ts
+  - kind: ethereum
     name: FundsModule
     network: mumbai
     source:
