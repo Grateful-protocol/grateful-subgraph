@@ -3,6 +3,7 @@ description: Grateful Mumbai
 schema:
   file: ./schema.graphql
 dataSources:
+  # Vaults data source
   - kind: ethereum
     name: VaultsModule
     network: mumbai
@@ -23,6 +24,8 @@ dataSources:
         - event: VaultAdded(bytes32,address)
           handler: handleVaultAdded
       file: ./src/vaults.ts
+
+  # Funds data source
   - kind: ethereum
     name: FundsModule
     network: mumbai
@@ -45,6 +48,8 @@ dataSources:
         - event: FundsWithdrawn(indexed bytes32,indexed bytes32,uint256,uint256)
           handler: handleFundsWithdrawn
       file: ./src/funds.ts
+
+  # Subscription data source
   - kind: ethereum
     name: SubscriptionsModule
     network: mumbai
@@ -67,3 +72,28 @@ dataSources:
         - event: SubscriptionFinished(indexed bytes32,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
           handler: handleSubscriptionFinished
       file: ./src/subscriptions.ts
+
+  # Profiles data source
+  - kind: ethereum
+    name: GratefulProfile
+    network: mumbai
+    source:
+      address: "0x2a1C433A85daC55E877C3a4BC9f728329c3011Cc"
+      abi: GratefulProfile
+      startBlock: 30910862
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Profile
+      abis:
+        - name: GratefulProfile
+          file: ./abis/nfts/GratefulProfile.sol/GratefulProfile.json
+        - name: ProfilesModule
+          file: ./abis/modules/ProfilesModule.sol/ProfilesModule.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleProfileMinted
+          receipt: true
+      file: ./src/profiles.ts
