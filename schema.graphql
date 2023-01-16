@@ -16,6 +16,12 @@ type Balance @entity {
   lastUpdate: BigInt!
 }
 
-type Subscription @entity {
-  id: Bytes!
+type GratefulSubscription @entity {
+  id: ID!
+  giver: Profile!
+  creator: Profile!
+  vault: Vault
+  rate: BigInt
+  feeRate: BigInt
+  lastUpdate: BigInt!
 }
