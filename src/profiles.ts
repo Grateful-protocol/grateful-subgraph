@@ -1,25 +1,27 @@
+import { Address } from "@graphprotocol/graph-ts";
 import { Transfer } from "../generated/GratefulProfile/GratefulProfile";
 import { ProfilesModule } from "../generated/GratefulProfile/ProfilesModule";
 import { Profile } from "../generated/schema";
 
 export function handleProfileMinted(event: Transfer): void {
-  const receipt = event.receipt;
+  const profileAddress = event.address;
+  const tokenId = event.params.tokenId;
 
-  if (receipt) {
-    const profileAddress = receipt.contractAddress;
-    const tokenId = event.params.tokenId;
+  const address = Address.fromString(
+    "0xCa1CbC0b702146924E1B7e607CA9eB33beF759ad"
+  ); // @audit not hardcoded address
 
-    const contract = ProfilesModule.bind(profileAddress);
-    const profileId = contract.getProfileId(profileAddress, tokenId);
+  const contract = ProfilesModule.bind(address);
 
-    let profile = Profile.load(profileId);
+  const profileId = contract.getProfileId(profileAddress, tokenId);
 
-    if (profile == null) {
-      profile = new Profile(profileId);
-    }
+  let profile = Profile.load(profileId);
 
-    profile.owner = event.params.to;
-
-    profile.save();
+  if (profile == null) {
+    profile = new Profile(profileId);
   }
+
+  profile.owner = event.params.to;
+
+  profile.save();
 }
