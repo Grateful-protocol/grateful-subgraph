@@ -8,7 +8,7 @@ export function handleProfileMinted(event: Transfer): void {
   const tokenId = event.params.tokenId;
 
   const address = Address.fromString(
-    "0xCa1CbC0b702146924E1B7e607CA9eB33beF759ad"
+    "0x9F0F29b4B1C559EaC6ADB8e5d75172B3ec6b825e"
   ); // @audit not hardcoded address
 
   const contract = ProfilesModule.bind(address);
@@ -19,6 +19,8 @@ export function handleProfileMinted(event: Transfer): void {
 
   if (profile == null) {
     profile = new Profile(profileId);
+    profile.address = profileAddress;
+    profile.tokenId = tokenId;
   }
 
   profile.owner = event.params.to;

@@ -1,6 +1,8 @@
 type Profile @entity {
   id: Bytes!
   owner: Bytes!
+  address: Bytes!
+  tokenId: BigInt!
 }
 
 type Vault @entity {
