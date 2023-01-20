@@ -1,22 +1,8 @@
-import { Bytes } from "@graphprotocol/graph-ts";
 import {
   FundsDeposited,
   FundsWithdrawn,
 } from "../generated/FundsModule/FundsModule";
-import { Balance } from "../generated/schema";
-
-function getBalance(profileId: Bytes, vaultId: Bytes): Balance {
-  const balanceId = profileId.concat(vaultId);
-  let balance = Balance.load(balanceId);
-
-  if (balance == null) {
-    balance = new Balance(balanceId);
-    balance.profile = profileId;
-    balance.vault = vaultId;
-  }
-
-  return balance;
-}
+import { getBalance } from "./balances";
 
 export function handleFundsDeposited(event: FundsDeposited): void {
   const profileId = event.params.profileId;
