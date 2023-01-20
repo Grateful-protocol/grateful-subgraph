@@ -7,6 +7,7 @@ type Profile @entity {
 
 type Vault @entity {
   id: Bytes!
+  address: Bytes!
 }
 
 type Balance @entity {
