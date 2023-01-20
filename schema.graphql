@@ -17,6 +17,7 @@ type Balance @entity {
   amount: BigInt!
   flow: BigInt!
   lastUpdate: BigInt!
+  liquidationTime: BigInt
 }
 
 type GratefulSubscription @entity {
