@@ -3,8 +3,17 @@ import {
   SubscriptionFinished,
   SubscriptionStarted,
 } from "../generated/SubscriptionsModule/SubscriptionsModule";
-import { handleBalanceFlowChange } from "./balances";
+import {
+  handleBalanceFlowChange,
+  handleBalanceOutflowChange,
+  handleBalanceInflowChange,
+} from "./balances";
 import { FeesModule } from "../generated/SubscriptionsModule/FeesModule";
+import {
+  handleProfileSubscribersChange,
+  handleProfileSubscriptionsChange,
+} from "./profiles";
+import { BigInt } from "@graphprotocol/graph-ts";
 
 export function handleSubscriptionStarted(event: SubscriptionStarted): void {
   const subscriptionId = event.params.subscriptionId.toString();
@@ -29,16 +38,24 @@ export function handleSubscriptionStarted(event: SubscriptionStarted): void {
 
   subscription.save();
 
+  const ONE = BigInt.fromI32(1);
+
   // Handle giver balance
-  const totalFlow = rate.plus(feeRate).neg();
-  handleBalanceFlowChange(event, giverId, vaultId, totalFlow);
+  const totalFlow = rate.plus(feeRate);
+  handleBalanceFlowChange(event, giverId, vaultId, totalFlow.neg());
+  handleBalanceOutflowChange(giverId, vaultId, totalFlow);
+  handleProfileSubscriptionsChange(giverId, ONE);
 
   // Handle creator balance
   handleBalanceFlowChange(event, creatorId, vaultId, rate);
+  handleBalanceInflowChange(creatorId, vaultId, rate);
+  handleProfileSubscribersChange(creatorId, ONE);
 
   // Handle treasury balance
   const treasuryId = FeesModule.bind(event.address).getFeeTreasuryId();
   handleBalanceFlowChange(event, treasuryId, vaultId, feeRate);
+  handleBalanceInflowChange(treasuryId, vaultId, feeRate);
+  handleProfileSubscribersChange(treasuryId, ONE);
 }
 
 export function handleSubscriptionFinished(event: SubscriptionFinished): void {
@@ -59,15 +76,23 @@ export function handleSubscriptionFinished(event: SubscriptionFinished): void {
 
     subscription.save();
 
+    const MINUS_ONE = BigInt.fromI32(1).neg();
+
     // Handle giver balance
     const totalFlow = rate.plus(feeRate);
     handleBalanceFlowChange(event, giverId, vaultId, totalFlow);
+    handleBalanceOutflowChange(giverId, vaultId, totalFlow.neg());
+    handleProfileSubscriptionsChange(giverId, MINUS_ONE);
 
     // Handle creator balance
     handleBalanceFlowChange(event, creatorId, vaultId, rate.neg());
+    handleBalanceInflowChange(creatorId, vaultId, rate.neg());
+    handleProfileSubscribersChange(creatorId, MINUS_ONE);
 
     // Handle treasury balance
     const treasuryId = FeesModule.bind(event.address).getFeeTreasuryId();
     handleBalanceFlowChange(event, treasuryId, vaultId, feeRate.neg());
+    handleBalanceInflowChange(treasuryId, vaultId, feeRate.neg());
+    handleProfileSubscribersChange(treasuryId, MINUS_ONE);
   }
 }

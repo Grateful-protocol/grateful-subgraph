@@ -10,8 +10,10 @@ export function getBalance(profileId: Bytes, vaultId: Bytes): Balance {
     balance = new Balance(balanceId);
     balance.profile = profileId;
     balance.vault = vaultId;
-    balance.amount = new BigInt(0);
-    balance.flow = new BigInt(0);
+    balance.amount = BigInt.fromI32(0);
+    balance.flow = BigInt.fromI32(0);
+    balance.inflow = BigInt.fromI32(0);
+    balance.outflow = BigInt.fromI32(0);
   }
 
   return balance;
@@ -65,5 +67,25 @@ export function handleBalanceFlowChange(
   balance.liquidationTime = getLiquidationTime(event, remainingTime);
   balance.lastUpdate = event.block.timestamp;
 
+  balance.save();
+}
+
+export function handleBalanceInflowChange(
+  profileId: Bytes,
+  vaultId: Bytes,
+  inflow: BigInt
+): void {
+  const balance = getBalance(profileId, vaultId);
+  balance.inflow = balance.inflow.plus(inflow);
+  balance.save();
+}
+
+export function handleBalanceOutflowChange(
+  profileId: Bytes,
+  vaultId: Bytes,
+  outflow: BigInt
+): void {
+  const balance = getBalance(profileId, vaultId);
+  balance.outflow = balance.outflow.plus(outflow);
   balance.save();
 }

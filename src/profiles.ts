@@ -1,4 +1,4 @@
-import { Address } from "@graphprotocol/graph-ts";
+import { Address, BigInt, Bytes } from "@graphprotocol/graph-ts";
 import { Transfer } from "../generated/GratefulProfile/GratefulProfile";
 import { ProfilesModule } from "../generated/GratefulProfile/ProfilesModule";
 import { Profile } from "../generated/schema";
@@ -21,9 +21,33 @@ export function handleProfileMinted(event: Transfer): void {
     profile = new Profile(profileId);
     profile.address = profileAddress;
     profile.tokenId = tokenId;
+    profile.subscriptions = BigInt.fromI32(0);
+    profile.subscribers = BigInt.fromI32(0);
   }
 
   profile.owner = event.params.to;
 
   profile.save();
+}
+
+export function handleProfileSubscriptionsChange(
+  profileId: Bytes,
+  quantity: BigInt
+): void {
+  const profile = Profile.load(profileId);
+  if (profile) {
+    profile.subscriptions = profile.subscriptions.plus(quantity);
+    profile.save();
+  }
+}
+
+export function handleProfileSubscribersChange(
+  profileId: Bytes,
+  quantity: BigInt
+): void {
+  const profile = Profile.load(profileId);
+  if (profile) {
+    profile.subscribers = profile.subscribers.plus(quantity);
+    profile.save();
+  }
 }

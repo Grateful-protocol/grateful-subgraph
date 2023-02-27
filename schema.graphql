@@ -3,6 +3,8 @@ type Profile @entity {
   owner: Bytes!
   address: Bytes!
   tokenId: BigInt!
+  subscriptions: BigInt!
+  subscribers: BigInt!
 }
 
 type Vault @entity {
@@ -16,6 +18,8 @@ type Balance @entity {
   profile: Profile!
   amount: BigInt!
   flow: BigInt!
+  inflow: BigInt!
+  outflow: BigInt!
   lastUpdate: BigInt!
   liquidationTime: BigInt
 }
