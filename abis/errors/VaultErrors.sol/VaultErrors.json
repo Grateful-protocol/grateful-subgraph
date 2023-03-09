@@ -11,7 +11,7 @@
   },
   {
     "inputs": [],
-    "name": "VaultAlreadyInitialized",
+    "name": "VaultNotInitialized",
     "type": "error"
   }
 ]

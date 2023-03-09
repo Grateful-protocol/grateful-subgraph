@@ -1,5 +1,10 @@
 [
   {
+    "inputs": [],
+    "name": "AlreadyInitialized",
+    "type": "error"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -12,7 +17,7 @@
   },
   {
     "inputs": [],
-    "name": "VaultAlreadyInitialized",
+    "name": "VaultNotInitialized",
     "type": "error"
   },
   {
@@ -29,7 +34,57 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
         "indexed": false,
+        "internalType": "uint256",
+        "name": "oldMaxRate",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newMaxRate",
+        "type": "uint256"
+      }
+    ],
+    "name": "MaxRateChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "oldMinRate",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newMinRate",
+        "type": "uint256"
+      }
+    ],
+    "name": "MinRateChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
         "internalType": "bytes32",
         "name": "id",
         "type": "bytes32"
@@ -39,9 +94,47 @@
         "internalType": "address",
         "name": "impl",
         "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "minRate",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "maxRate",
+        "type": "uint256"
       }
     ],
     "name": "VaultAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "VaultPaused",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "VaultUnpaused",
     "type": "event"
   },
   {
@@ -89,6 +182,68 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "pauseVault",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "newMaxRate",
+        "type": "uint256"
+      }
+    ],
+    "name": "setMaxRate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "newMinRate",
+        "type": "uint256"
+      }
+    ],
+    "name": "setMinRate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "unpauseVault",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]

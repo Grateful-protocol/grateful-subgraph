@@ -95,7 +95,7 @@ dataSources:
         - Profile
       abis:
         - name: GratefulProfile
-          file: ./abis/nfts/GratefulProfile.sol/GratefulProfile.json
+          file: ./abis/modules/associated-systems/GratefulProfile.sol/GratefulProfile.json
         - name: ProfilesModule
           file: ./abis/modules/ProfilesModule.sol/ProfilesModule.json
       eventHandlers:

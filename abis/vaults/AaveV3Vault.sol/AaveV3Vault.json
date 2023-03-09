@@ -12,8 +12,8 @@
         "type": "address"
       },
       {
-        "internalType": "contract IAaveMining",
-        "name": "aaveMining_",
+        "internalType": "contract IPool",
+        "name": "lendingPool_",
         "type": "address"
       },
       {
@@ -22,8 +22,8 @@
         "type": "address"
       },
       {
-        "internalType": "contract ILendingPool",
-        "name": "lendingPool_",
+        "internalType": "contract IRewardsController",
+        "name": "rewardsController_",
         "type": "address"
       },
       {
@@ -212,19 +212,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "aaveMining",
-    "outputs": [
-      {
-        "internalType": "contract IAaveMining",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
@@ -391,7 +378,7 @@
     "name": "lendingPool",
     "outputs": [
       {
-        "internalType": "contract ILendingPool",
+        "internalType": "contract IPool",
         "name": "",
         "type": "address"
       }
@@ -705,6 +692,19 @@
     "outputs": [
       {
         "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "rewardsController",
+    "outputs": [
+      {
+        "internalType": "contract IRewardsController",
         "name": "",
         "type": "address"
       }

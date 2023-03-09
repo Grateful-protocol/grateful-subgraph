@@ -5,6 +5,11 @@
         "internalType": "address",
         "name": "firstImplementation",
         "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "initialOwner",
+        "type": "address"
       }
     ],
     "stateMutability": "nonpayable",

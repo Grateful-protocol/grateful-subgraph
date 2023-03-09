@@ -1,10 +1,5 @@
 [
   {
-    "inputs": [],
-    "name": "AlreadyInitialized",
-    "type": "error"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
@@ -129,32 +124,6 @@
         "internalType": "address",
         "name": "",
         "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "initialOwner",
-        "type": "address"
-      }
-    ],
-    "name": "initializeOwnerModule",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "isOwnerModuleInitialized",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
       }
     ],
     "stateMutability": "view",

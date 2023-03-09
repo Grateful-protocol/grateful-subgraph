@@ -1,6 +1,11 @@
 [
   {
     "inputs": [],
+    "name": "AlreadyInitialized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "ZeroAddress",
     "type": "error"
   },

@@ -1,5 +1,10 @@
 [
   {
+    "inputs": [],
+    "name": "AlreadyInitialized",
+    "type": "error"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -12,13 +17,27 @@
   },
   {
     "inputs": [],
-    "name": "ZeroAmount",
+    "name": "ZeroId",
     "type": "error"
   },
   {
-    "inputs": [],
-    "name": "ZeroId",
-    "type": "error"
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "oldFeePercentage",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newFeePercentage",
+        "type": "uint256"
+      }
+    ],
+    "name": "FeePercentageChanged",
+    "type": "event"
   },
   {
     "anonymous": false,
@@ -37,6 +56,25 @@
       }
     ],
     "name": "FeesInitialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "oldTreasury",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "newTreasury",
+        "type": "bytes32"
+      }
+    ],
+    "name": "GratefulFeeTreasuryChanged",
     "type": "event"
   },
   {
@@ -98,6 +136,32 @@
       }
     ],
     "name": "initializeFeesModule",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "newFeePercentage",
+        "type": "uint256"
+      }
+    ],
+    "name": "setFeePercentage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "newTreasury",
+        "type": "bytes32"
+      }
+    ],
+    "name": "setGratefulFeeTreasury",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -1,16 +1,60 @@
 [
   {
-    "inputs": [],
-    "name": "getGratefulSubscription",
-    "outputs": [
+    "anonymous": false,
+    "inputs": [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "solvencyTimeRequired",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "liquidationTimeRequired",
+        "type": "uint256"
       }
     ],
-    "stateMutability": "nonpayable",
-    "type": "function"
+    "name": "ConfigInitialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "oldLiquidationTime",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newLiquidationTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "LiquidationTimeChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "oldSolvencyTime",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newSolvencyTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "SolvencyTimeChanged",
+    "type": "event"
   },
   {
     "inputs": [],
@@ -49,14 +93,35 @@
         "internalType": "uint256",
         "name": "liquidationTimeRequired",
         "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "gratefulSubscription",
-        "type": "address"
       }
     ],
     "name": "initializeConfigModule",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "newLiquidationTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "setLiquidationTimeRequired",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "newSolvencyTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSolvencyTimeRequired",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
