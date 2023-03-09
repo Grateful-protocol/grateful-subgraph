@@ -21,8 +21,16 @@ dataSources:
         - name: VaultsModule
           file: ./abis/modules/VaultsModule.sol/VaultsModule.json
       eventHandlers:
-        - event: VaultAdded(bytes32,address)
+        - event: VaultAdded(indexed bytes32,address,uint256,uint256)
           handler: handleVaultAdded
+        - event: MinRateChanged(indexed bytes32,uint256,uint256)
+          handler: handleMinRateChanged
+        - event: MaxRateChanged(indexed bytes32,uint256,uint256)
+          handler: handleMaxRateChanged
+        - event: VaultPaused(indexed bytes32)
+          handler: handleVaultPaused
+        - event: VaultUnpaused(indexed bytes32)
+          handler: handleVaultUnpaused
       file: ./src/vaults.ts
 
   # Funds data source
