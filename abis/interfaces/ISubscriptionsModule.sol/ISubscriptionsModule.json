@@ -286,24 +286,14 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "giverProfile",
-        "type": "address"
+        "internalType": "bytes32",
+        "name": "giverId",
+        "type": "bytes32"
       },
       {
-        "internalType": "uint256",
-        "name": "giverTokenId",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "creatorProfile",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "creatorTokenId",
-        "type": "uint256"
+        "internalType": "bytes32",
+        "name": "creatorId",
+        "type": "bytes32"
       },
       {
         "internalType": "bytes32",
@@ -324,24 +314,14 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "giverProfile",
-        "type": "address"
+        "internalType": "bytes32",
+        "name": "giverId",
+        "type": "bytes32"
       },
       {
-        "internalType": "uint256",
-        "name": "giverTokenId",
-        "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "creatorProfile",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "creatorTokenId",
-        "type": "uint256"
+        "internalType": "bytes32",
+        "name": "creatorId",
+        "type": "bytes32"
       }
     ],
     "name": "unsubscribe",

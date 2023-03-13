@@ -1,12 +1,37 @@
 [
   {
     "inputs": [],
+    "name": "InvalidPermission",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "InvalidProfile",
     "type": "error"
   },
   {
     "inputs": [],
     "name": "NonExistentProfile",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "OnlyGratefulProfileProxy",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "PermissionDenied",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "PermissionNotGranted",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ProfileNotFound",
     "type": "error"
   },
   {

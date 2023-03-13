@@ -16,22 +16,17 @@
   },
   {
     "inputs": [],
-    "name": "InvalidProfile",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "InvalidVault",
     "type": "error"
   },
   {
     "inputs": [],
-    "name": "NonExistentProfile",
+    "name": "PermissionDenied",
     "type": "error"
   },
   {
     "inputs": [],
-    "name": "UnauthorizedProfile",
+    "name": "ProfileNotFound",
     "type": "error"
   },
   {
@@ -104,14 +99,9 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "profile",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
+        "internalType": "bytes32",
+        "name": "profileId",
+        "type": "bytes32"
       },
       {
         "internalType": "bytes32",
@@ -132,14 +122,9 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "profile",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
+        "internalType": "bytes32",
+        "name": "profileId",
+        "type": "bytes32"
       },
       {
         "internalType": "bytes32",
