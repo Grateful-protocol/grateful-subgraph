@@ -59,8 +59,9 @@ export function handleBalanceFlowChange(
   const balance = getBalance(profileId, vaultId);
 
   const contract = BalancesModule.bind(event.address);
-  const currentBalance = contract.balanceOf(profileId, vaultId);
-  const remainingTime = contract.getRemainingTimeToZero(profileId, vaultId);
+  const currentData = contract.getBalanceCurrentData(profileId, vaultId);
+  const currentBalance = currentData.getBalance();
+  const remainingTime = currentData.getTimeLeft();
 
   balance.amount = currentBalance;
   balance.flow = balance.flow.plus(flow);
