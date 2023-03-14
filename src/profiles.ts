@@ -28,11 +28,12 @@ function getProfileId(profileAddress: Address, tokenId: BigInt): Bytes {
     ethereum.Value.fromAddress(profileAddress),
     ethereum.Value.fromUnsignedBigInt(tokenId),
   ];
-  const tuple = tupleArray as ethereum.Tuple;
-  const encoded = ethereum.encode(ethereum.Value.fromTuple(tuple))!;
-  const profileId = crypto.keccak256(encoded);
 
-  log.debug("PROFILE ID: {}", [profileId.toString()]);
+  const encoded = ethereum.encode(
+    ethereum.Value.fromFixedSizedArray(tupleArray)
+  )!;
+
+  const profileId = crypto.keccak256(encoded);
 
   return Bytes.fromByteArray(profileId);
 }

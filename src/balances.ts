@@ -1,9 +1,24 @@
-import { BigInt, Bytes, ethereum } from "@graphprotocol/graph-ts";
+import { BigInt, Bytes, ethereum, crypto } from "@graphprotocol/graph-ts";
 import { Balance } from "../generated/schema";
 import { BalancesModule } from "../generated/SubscriptionsModule/BalancesModule";
 
+function getBalanceId(profileId: Bytes, vaultId: Bytes): Bytes {
+  const tupleArray: Array<ethereum.Value> = [
+    ethereum.Value.fromBytes(profileId),
+    ethereum.Value.fromBytes(vaultId),
+  ];
+
+  const encoded = ethereum.encode(
+    ethereum.Value.fromFixedSizedArray(tupleArray)
+  )!;
+
+  const balanceId = crypto.keccak256(encoded);
+
+  return Bytes.fromByteArray(balanceId);
+}
+
 export function getBalance(profileId: Bytes, vaultId: Bytes): Balance {
-  const balanceId = profileId.concat(vaultId);
+  const balanceId = getBalanceId(profileId, vaultId);
   let balance = Balance.load(balanceId);
 
   if (balance == null) {
