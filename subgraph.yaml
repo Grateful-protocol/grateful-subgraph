@@ -8,9 +8,9 @@ dataSources:
     name: VaultsModule
     network: mumbai
     source:
-      address: "0x9F0F29b4B1C559EaC6ADB8e5d75172B3ec6b825e"
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
       abi: VaultsModule
-      startBlock: 31115582
+      startBlock: 33105231
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -38,9 +38,9 @@ dataSources:
     name: FundsModule
     network: mumbai
     source:
-      address: "0x9F0F29b4B1C559EaC6ADB8e5d75172B3ec6b825e"
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
       abi: FundsModule
-      startBlock: 31115582
+      startBlock: 33105231
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -64,9 +64,9 @@ dataSources:
     name: SubscriptionsModule
     network: mumbai
     source:
-      address: "0x9F0F29b4B1C559EaC6ADB8e5d75172B3ec6b825e"
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
       abi: SubscriptionsModule
-      startBlock: 31115582
+      startBlock: 33105231
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -92,9 +92,9 @@ dataSources:
     name: ProfilesModule
     network: mumbai
     source:
-      address: "0x9F0F29b4B1C559EaC6ADB8e5d75172B3ec6b825e"
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
       abi: ProfilesModule
-      startBlock: 31115582
+      startBlock: 33105231
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -114,9 +114,9 @@ dataSources:
     name: GratefulProfile
     network: mumbai
     source:
-      address: "0xD0aD240d9d8C5296894E7f09e8161228450Ee532"
+      address: "0x0e52B7B1f8395c13Bad872d14405f6A073ABA472"
       abi: GratefulProfile
-      startBlock: 31115582
+      startBlock: 33105231
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
