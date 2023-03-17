@@ -1,6 +1,6 @@
 # Subgraph Schema
 
-This subgraph schema defines the entities and fields used in a liquidity management system.
+This subgraph schema defines the entities and fields used in Grateful system.
 
 ## Profile
 
