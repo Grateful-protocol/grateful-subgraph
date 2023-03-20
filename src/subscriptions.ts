@@ -1,4 +1,7 @@
-import { GratefulSubscription as Subscription } from "../generated/schema";
+import {
+  GratefulSubscription as Subscription,
+  SubscriptionHistory,
+} from "../generated/schema";
 import {
   SubscriptionFinished,
   SubscriptionStarted,
@@ -13,10 +16,12 @@ import {
   handleProfileSubscribersChange,
   handleProfileSubscriptionsChange,
 } from "./profiles";
-import { BigInt } from "@graphprotocol/graph-ts";
+import { BigInt, Bytes } from "@graphprotocol/graph-ts";
 
 export function handleSubscriptionStarted(event: SubscriptionStarted): void {
-  const subscriptionId = event.params.subscriptionId.toString();
+  const subscriptionId = Bytes.fromByteArray(
+    Bytes.fromBigInt(event.params.subscriptionId)
+  );
   const giverId = event.params.giverId;
   const creatorId = event.params.creatorId;
   const vaultId = event.params.vaultId;
@@ -29,12 +34,15 @@ export function handleSubscriptionStarted(event: SubscriptionStarted): void {
     subscription = new Subscription(subscriptionId);
     subscription.giver = giverId;
     subscription.creator = creatorId;
+    subscription.historyCounter = BigInt.fromString("0");
   }
 
   subscription.vault = vaultId;
   subscription.rate = rate;
   subscription.feeRate = feeRate;
   subscription.lastUpdate = event.block.timestamp;
+
+  createHistory(subscription);
 
   subscription.save();
 
@@ -59,7 +67,9 @@ export function handleSubscriptionStarted(event: SubscriptionStarted): void {
 }
 
 export function handleSubscriptionFinished(event: SubscriptionFinished): void {
-  const subscriptionId = event.params.subscriptionId.toString();
+  const subscriptionId = Bytes.fromByteArray(
+    Bytes.fromBigInt(event.params.subscriptionId)
+  );
   const giverId = event.params.giverId;
   const creatorId = event.params.creatorId;
   const vaultId = event.params.vaultId;
@@ -73,6 +83,11 @@ export function handleSubscriptionFinished(event: SubscriptionFinished): void {
     subscription.rate = null;
     subscription.feeRate = null;
     subscription.lastUpdate = event.block.timestamp;
+
+    finishHistory(subscription);
+    subscription.historyCounter = subscription.historyCounter.plus(
+      BigInt.fromI32(1)
+    );
 
     subscription.save();
 
@@ -94,5 +109,36 @@ export function handleSubscriptionFinished(event: SubscriptionFinished): void {
     handleBalanceFlowChange(event, treasuryId, vaultId, feeRate.neg());
     handleBalanceInflowChange(treasuryId, vaultId, feeRate.neg());
     handleProfileSubscribersChange(treasuryId, MINUS_ONE);
+  }
+}
+
+function createHistory(subscription: Subscription): void {
+  const counter = Bytes.fromByteArray(
+    Bytes.fromBigInt(subscription.historyCounter)
+  );
+  const historyId = subscription.id.concat(counter);
+
+  const history = new SubscriptionHistory(historyId);
+
+  history.subscription = subscription.id;
+  history.vault = subscription.vault;
+  history.rate = subscription.rate!;
+  history.feeRate = subscription.feeRate!;
+  history.from = subscription.lastUpdate;
+
+  history.save();
+}
+
+function finishHistory(subscription: Subscription): void {
+  const counter = Bytes.fromByteArray(
+    Bytes.fromBigInt(subscription.historyCounter)
+  );
+  const historyId = subscription.id.concat(counter);
+
+  const history = SubscriptionHistory.load(historyId);
+
+  if (history) {
+    history.to = subscription.lastUpdate;
+    history.save();
   }
 }

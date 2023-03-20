@@ -28,11 +28,23 @@ type Balance @entity {
 }
 
 type GratefulSubscription @entity {
-  id: ID!
+  id: Bytes!
   giver: Profile!
   creator: Profile!
   vault: Vault
   rate: BigInt
   feeRate: BigInt
   lastUpdate: BigInt!
+  historyCounter: BigInt!
+  histories: [SubscriptionHistory!]! @derivedFrom(field: "subscription")
+}
+
+type SubscriptionHistory @entity {
+  id: Bytes!
+  subscription: GratefulSubscription!
+  vault: Vault
+  rate: BigInt!
+  feeRate: BigInt!
+  from: BigInt!
+  to: BigInt
 }

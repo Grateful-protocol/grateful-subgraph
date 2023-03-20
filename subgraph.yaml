@@ -73,6 +73,7 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - Subscription
+        - SubscriptionHistory
       abis:
         - name: SubscriptionsModule
           file: ./abis/modules/SubscriptionsModule.sol/SubscriptionsModule.json
