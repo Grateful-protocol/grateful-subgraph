@@ -48,3 +48,10 @@ type SubscriptionHistory @entity {
   from: BigInt!
   to: BigInt
 }
+
+type ProfilePermission @entity {
+  id: Bytes!
+  profile: Profile!
+  user: Bytes!
+  permissions: [Bytes!]!
+}
