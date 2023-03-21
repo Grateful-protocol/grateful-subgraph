@@ -108,6 +108,10 @@ dataSources:
       eventHandlers:
         - event: ProfileCreated(indexed address,indexed address,uint256,bytes32)
           handler: handleProfileCreated
+        - event: PermissionGranted(indexed bytes32,indexed bytes32,indexed address,address)
+          handler: handlePermissionGranted
+        - event: PermissionRevoked(indexed bytes32,indexed bytes32,indexed address,address)
+          handler: handlePermissionRevoked
       file: ./src/profiles.ts
 
   # Grateful profile NFT data source

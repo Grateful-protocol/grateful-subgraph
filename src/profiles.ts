@@ -6,9 +6,13 @@ import {
   ethereum,
   Address,
 } from "@graphprotocol/graph-ts";
-import { ProfileCreated } from "../generated/ProfilesModule/ProfilesModule";
+import {
+  PermissionGranted,
+  PermissionRevoked,
+  ProfileCreated,
+} from "../generated/ProfilesModule/ProfilesModule";
 import { Transfer } from "../generated/GratefulProfile/GratefulProfile";
-import { Profile } from "../generated/schema";
+import { ProfilePermission, Profile } from "../generated/schema";
 
 export function handleProfileCreated(event: ProfileCreated): void {
   const profileId = event.params.profileId;
@@ -69,4 +73,43 @@ export function handleProfileSubscribersChange(
     profile.subscribers = profile.subscribers.plus(quantity);
     profile.save();
   }
+}
+
+function getPermission(profileId: Bytes, user: Bytes): ProfilePermission {
+  const permissionId = profileId.concat(user);
+  let permission = ProfilePermission.load(permissionId);
+
+  if (permission == null) {
+    permission = new ProfilePermission(permissionId);
+    permission.profile = profileId;
+    permission.user = user;
+    permission.permissions = [];
+  }
+
+  return permission;
+}
+
+export function handlePermissionGranted(event: PermissionGranted): void {
+  const permission = getPermission(event.params.profileId, event.params.user);
+
+  const newPermissions = permission.permissions;
+  newPermissions.push(event.params.permission);
+  permission.permissions = newPermissions;
+
+  permission.save();
+}
+
+export function handlePermissionRevoked(event: PermissionRevoked): void {
+  const permission = getPermission(event.params.profileId, event.params.user);
+
+  const newPermissions = permission.permissions;
+  let indexToDelete = newPermissions.indexOf(event.params.permission);
+
+  if (indexToDelete > -1) {
+    newPermissions.splice(indexToDelete, 1);
+  }
+
+  permission.permissions = newPermissions;
+
+  permission.save();
 }
