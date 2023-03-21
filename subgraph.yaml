@@ -135,3 +135,25 @@ dataSources:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleProfileTransfer
       file: ./src/profiles.ts
+
+  # Liquidations data source
+  - kind: ethereum
+    name: LiquidationsModule
+    network: mumbai
+    source:
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      abi: LiquidationsModule
+      startBlock: 33105231
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - LiquidatedSubscription
+      abis:
+        - name: LiquidationsModule
+          file: ./abis/modules/LiquidationsModule.sol/LiquidationsModule.json
+      eventHandlers:
+        - event: SubscriptionLiquidated(indexed bytes32,indexed bytes32,indexed bytes32,bytes32,uint256,uint256,uint256)
+          handler: handleSubscriptionLiquidated
+      file: ./src/liquidations.ts
