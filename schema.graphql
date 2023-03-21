@@ -55,3 +55,14 @@ type ProfilePermission @entity {
   user: Bytes!
   permissions: [Bytes!]!
 }
+
+type LiquidatedSubscription @entity {
+  id: Bytes!
+  giver: Profile!
+  creator: Profile!
+  liquidator: Profile!
+  vault: Vault!
+  subscription: GratefulSubscription!
+  reward: BigInt!
+  surplus: BigInt!
+}
