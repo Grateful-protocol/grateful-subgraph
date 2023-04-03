@@ -1,12 +1,12 @@
 import {
   crypto,
-  log,
   BigInt,
   Bytes,
   ethereum,
   Address,
 } from "@graphprotocol/graph-ts";
 import {
+  AllPermissionsRevoked,
   PermissionGranted,
   PermissionRevoked,
   ProfileCreated,
@@ -19,6 +19,7 @@ export function handleProfileCreated(event: ProfileCreated): void {
 
   const profile = new Profile(profileId);
   profile.owner = event.params.owner;
+  profile.salt = event.params.salt;
   profile.address = event.params.profileAddress;
   profile.tokenId = event.params.tokenId;
   profile.subscriptions = BigInt.fromI32(0);
@@ -110,6 +111,16 @@ export function handlePermissionRevoked(event: PermissionRevoked): void {
   }
 
   permission.permissions = newPermissions;
+
+  permission.save();
+}
+
+export function handlehandleAllPermissionsRevoked(
+  event: AllPermissionsRevoked
+): void {
+  const permission = getPermission(event.params.profileId, event.params.user);
+
+  permission.permissions = [];
 
   permission.save();
 }

@@ -106,12 +106,14 @@ dataSources:
         - name: ProfilesModule
           file: ./abis/modules/ProfilesModule.sol/ProfilesModule.json
       eventHandlers:
-        - event: ProfileCreated(indexed address,indexed address,uint256,bytes32)
+        - event: ProfileCreated(indexed address,indexed address,uint256,bytes32,bytes32)
           handler: handleProfileCreated
         - event: PermissionGranted(indexed bytes32,indexed bytes32,indexed address,address)
           handler: handlePermissionGranted
         - event: PermissionRevoked(indexed bytes32,indexed bytes32,indexed address,address)
           handler: handlePermissionRevoked
+        - event: AllPermissionsRevoked(indexed bytes32,indexed address)
+          handler: handleAllPermissionsRevoked
       file: ./src/profiles.ts
 
   # Grateful profile NFT data source

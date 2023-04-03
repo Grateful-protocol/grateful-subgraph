@@ -1,10 +1,12 @@
 type Profile @entity {
   id: Bytes!
   owner: Bytes!
+  salt: Bytes!
   address: Bytes!
   tokenId: BigInt!
   subscriptions: BigInt!
   subscribers: BigInt!
+  permissions: [ProfilePermission!]! @derivedFrom(field: "profile")
 }
 
 type Vault @entity {
