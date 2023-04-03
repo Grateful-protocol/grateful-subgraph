@@ -98,14 +98,14 @@
       {
         "components": [
           {
-            "internalType": "uint256",
+            "internalType": "uint96",
             "name": "rate",
-            "type": "uint256"
+            "type": "uint96"
           },
           {
-            "internalType": "uint176",
+            "internalType": "uint80",
             "name": "feeRate",
-            "type": "uint176"
+            "type": "uint80"
           },
           {
             "internalType": "uint40",
@@ -173,14 +173,14 @@
       {
         "components": [
           {
-            "internalType": "uint256",
+            "internalType": "uint96",
             "name": "rate",
-            "type": "uint256"
+            "type": "uint96"
           },
           {
-            "internalType": "uint176",
+            "internalType": "uint80",
             "name": "feeRate",
-            "type": "uint176"
+            "type": "uint80"
           },
           {
             "internalType": "uint40",

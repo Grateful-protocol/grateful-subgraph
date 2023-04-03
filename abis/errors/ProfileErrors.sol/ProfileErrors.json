@@ -31,6 +31,11 @@
   },
   {
     "inputs": [],
+    "name": "ProfileAlreadyCreated",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "ProfileNotFound",
     "type": "error"
   },

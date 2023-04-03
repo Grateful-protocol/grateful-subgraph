@@ -57,6 +57,19 @@
         "internalType": "bytes32",
         "name": "id",
         "type": "bytes32"
+      }
+    ],
+    "name": "VaultActivated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
       },
       {
         "indexed": false,
@@ -78,6 +91,19 @@
       }
     ],
     "name": "VaultAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "VaultDeprecated",
     "type": "event"
   },
   {
@@ -112,6 +138,19 @@
         "internalType": "bytes32",
         "name": "id",
         "type": "bytes32"
+      }
+    ],
+    "name": "activateVault",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
       },
       {
         "internalType": "address",
@@ -130,6 +169,19 @@
       }
     ],
     "name": "addVault",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "id",
+        "type": "bytes32"
+      }
+    ],
+    "name": "deprecateVault",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
