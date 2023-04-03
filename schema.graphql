@@ -15,6 +15,7 @@ type Vault @entity {
   minRate: BigInt!
   maxRate: BigInt!
   paused: Boolean!
+  deprecated: Boolean!
 }
 
 type Balance @entity {

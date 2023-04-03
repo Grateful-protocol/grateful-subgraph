@@ -31,6 +31,10 @@ dataSources:
           handler: handleVaultPaused
         - event: VaultUnpaused(indexed bytes32)
           handler: handleVaultUnpaused
+        - event: VaultDeprecated(indexed bytes32)
+          handler: handleVaultDeprecated
+        - event: VaultActivated(indexed bytes32)
+          handler: handleVaultActivated
       file: ./src/vaults.ts
 
   # Funds data source
