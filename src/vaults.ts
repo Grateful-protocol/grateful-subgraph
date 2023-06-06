@@ -3,7 +3,7 @@ import {
   MinRateChanged,
   VaultActivated,
   VaultAdded,
-  VaultDeprecated,
+  VaultDeactivated,
   VaultPaused,
   VaultUnpaused,
 } from "../generated/VaultsModule/VaultsModule";
@@ -42,14 +42,14 @@ export function handleVaultUnpaused(event: VaultUnpaused): void {
   vault.save();
 }
 
-export function handleVaultDeprecated(event: VaultDeprecated): void {
+export function handleVaultDeactivated(event: VaultDeactivated): void {
   const vault = new Vault(event.params.id);
-  vault.deprecated = true;
+  vault.deactivated = true;
   vault.save();
 }
 
 export function handleVaultActivated(event: VaultActivated): void {
   const vault = new Vault(event.params.id);
-  vault.deprecated = false;
+  vault.deactivated = false;
   vault.save();
 }

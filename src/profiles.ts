@@ -12,7 +12,11 @@ import {
   ProfileCreated,
 } from "../generated/ProfilesModule/ProfilesModule";
 import { Transfer } from "../generated/GratefulProfile/GratefulProfile";
-import { ProfilePermission, Profile } from "../generated/schema";
+import {
+  ProfilePermission,
+  Profile,
+  ProfileTracker,
+} from "../generated/schema";
 
 export function handleProfileCreated(event: ProfileCreated): void {
   const profileId = event.params.profileId;
@@ -24,8 +28,23 @@ export function handleProfileCreated(event: ProfileCreated): void {
   profile.tokenId = event.params.tokenId;
   profile.subscriptions = BigInt.fromI32(0);
   profile.subscribers = BigInt.fromI32(0);
+  profile.createdAt = event.block.timestamp;
 
   profile.save();
+
+  trackProfilesCreated(event.params.owner);
+}
+
+function trackProfilesCreated(owner: Address): void {
+  let tracker = ProfileTracker.load(owner);
+
+  if (tracker == null) {
+    tracker = new ProfileTracker(owner);
+    tracker.profilesCreated = BigInt.fromString("0");
+  }
+  tracker.profilesCreated = tracker.profilesCreated.plus(BigInt.fromU32(1));
+
+  tracker.save();
 }
 
 function getProfileId(profileAddress: Address, tokenId: BigInt): Bytes {

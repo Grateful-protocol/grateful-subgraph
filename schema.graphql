@@ -6,6 +6,7 @@ type Profile @entity {
   tokenId: BigInt!
   subscriptions: BigInt!
   subscribers: BigInt!
+  createdAt: BigInt!
   permissions: [ProfilePermission!]! @derivedFrom(field: "profile")
 }
 
@@ -15,7 +16,7 @@ type Vault @entity {
   minRate: BigInt!
   maxRate: BigInt!
   paused: Boolean!
-  deprecated: Boolean!
+  deactivated: Boolean!
 }
 
 type Balance @entity {
@@ -68,4 +69,9 @@ type LiquidatedSubscription @entity {
   subscription: GratefulSubscription!
   reward: BigInt!
   surplus: BigInt!
+}
+
+type ProfileTracker @entity {
+  id: Bytes!
+  profilesCreated: BigInt!
 }
