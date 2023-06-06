@@ -8,7 +8,7 @@ dataSources:
     name: VaultsModule
     network: mumbai
     source:
-      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: VaultsModule
       startBlock: 33105231
     mapping:
@@ -31,8 +31,8 @@ dataSources:
           handler: handleVaultPaused
         - event: VaultUnpaused(indexed bytes32)
           handler: handleVaultUnpaused
-        - event: VaultDeprecated(indexed bytes32)
-          handler: handleVaultDeprecated
+        - event: VaultDeactivated(indexed bytes32)
+          handler: handleVaultDeactivated
         - event: VaultActivated(indexed bytes32)
           handler: handleVaultActivated
       file: ./src/vaults.ts
@@ -42,7 +42,7 @@ dataSources:
     name: FundsModule
     network: mumbai
     source:
-      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: FundsModule
       startBlock: 33105231
     mapping:
@@ -68,7 +68,7 @@ dataSources:
     name: SubscriptionsModule
     network: mumbai
     source:
-      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: SubscriptionsModule
       startBlock: 33105231
     mapping:
@@ -97,7 +97,7 @@ dataSources:
     name: ProfilesModule
     network: mumbai
     source:
-      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: ProfilesModule
       startBlock: 33105231
     mapping:
@@ -106,6 +106,7 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - Profile
+        - ProfileTracker
       abis:
         - name: ProfilesModule
           file: ./abis/modules/ProfilesModule.sol/ProfilesModule.json
@@ -125,7 +126,7 @@ dataSources:
     name: GratefulProfile
     network: mumbai
     source:
-      address: "0x0e52B7B1f8395c13Bad872d14405f6A073ABA472"
+      address: "0xB093e89F0c71666Af197Bc5cC5819E5D147290eb"
       abi: GratefulProfile
       startBlock: 33105231
     mapping:
@@ -147,7 +148,7 @@ dataSources:
     name: LiquidationsModule
     network: mumbai
     source:
-      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: LiquidationsModule
       startBlock: 33105231
     mapping:
