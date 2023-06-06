@@ -6,16 +6,6 @@
   },
   {
     "inputs": [],
-    "name": "InvalidProfile",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "NonExistentProfile",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "OnlyGratefulProfileProxy",
     "type": "error"
   },
@@ -37,11 +27,6 @@
   {
     "inputs": [],
     "name": "ProfileNotFound",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "UnauthorizedProfile",
     "type": "error"
   }
 ]

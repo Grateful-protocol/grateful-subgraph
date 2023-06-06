@@ -64,7 +64,7 @@
     "outputs": [
       {
         "internalType": "int256",
-        "name": "balance",
+        "name": "currentBalance",
         "type": "int256"
       },
       {

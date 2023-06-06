@@ -103,7 +103,7 @@
         "type": "bytes32"
       }
     ],
-    "name": "VaultDeprecated",
+    "name": "VaultDeactivated",
     "type": "event"
   },
   {
@@ -181,7 +181,7 @@
         "type": "bytes32"
       }
     ],
-    "name": "deprecateVault",
+    "name": "deactivateVault",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
