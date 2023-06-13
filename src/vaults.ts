@@ -15,6 +15,7 @@ export function handleVaultAdded(event: VaultAdded): void {
   vault.minRate = event.params.minRate;
   vault.maxRate = event.params.maxRate;
   vault.paused = false;
+  vault.deactivated = false;
   vault.save();
 }
 

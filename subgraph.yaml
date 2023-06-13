@@ -10,7 +10,7 @@ dataSources:
     source:
       address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: VaultsModule
-      startBlock: 33105231
+      startBlock: 36481516
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -44,7 +44,7 @@ dataSources:
     source:
       address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: FundsModule
-      startBlock: 33105231
+      startBlock: 36481516
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -70,7 +70,7 @@ dataSources:
     source:
       address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: SubscriptionsModule
-      startBlock: 33105231
+      startBlock: 36481516
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -99,7 +99,7 @@ dataSources:
     source:
       address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: ProfilesModule
-      startBlock: 33105231
+      startBlock: 36481516
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -128,7 +128,7 @@ dataSources:
     source:
       address: "0xB093e89F0c71666Af197Bc5cC5819E5D147290eb"
       abi: GratefulProfile
-      startBlock: 33105231
+      startBlock: 36481516
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -150,7 +150,7 @@ dataSources:
     source:
       address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: LiquidationsModule
-      startBlock: 33105231
+      startBlock: 36481516
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
