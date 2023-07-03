@@ -24,5 +24,31 @@
       "address": "0xC7882202840af8E994aB72Df7d19778C4E0e1287",
       "startBlock": 36481516
     }
+  },
+  "matic": {
+    "VaultsModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 44638824
+    },
+    "FundsModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 44638824
+    },
+    "SubscriptionsModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 44638824
+    },
+    "ProfilesModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 44638824
+    },
+    "GratefulProfile": {
+      "address": "0x0e52B7B1f8395c13Bad872d14405f6A073ABA472",
+      "startBlock": 44638824
+    },
+    "LiquidationsModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 44638824
+    }
   }
 }

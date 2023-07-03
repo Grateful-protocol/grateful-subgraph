@@ -3,14 +3,13 @@ description: Grateful Mumbai
 schema:
   file: ./schema.graphql
 dataSources:
-  # Vaults data source
   - kind: ethereum
     name: VaultsModule
-    network: mumbai
+    network: matic
     source:
-      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: VaultsModule
-      startBlock: 36481516
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      startBlock: 44638824
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -36,15 +35,13 @@ dataSources:
         - event: VaultActivated(indexed bytes32)
           handler: handleVaultActivated
       file: ./src/vaults.ts
-
-  # Funds data source
   - kind: ethereum
     name: FundsModule
-    network: mumbai
+    network: matic
     source:
-      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: FundsModule
-      startBlock: 36481516
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      startBlock: 44638824
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -62,15 +59,13 @@ dataSources:
         - event: FundsWithdrawn(indexed bytes32,indexed bytes32,uint256,uint256)
           handler: handleFundsWithdrawn
       file: ./src/funds.ts
-
-  # Subscription data source
   - kind: ethereum
     name: SubscriptionsModule
-    network: mumbai
+    network: matic
     source:
-      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: SubscriptionsModule
-      startBlock: 36481516
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      startBlock: 44638824
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -86,20 +81,20 @@ dataSources:
         - name: FeesModule
           file: ./abis/modules/FeesModule.sol/FeesModule.json
       eventHandlers:
-        - event: SubscriptionStarted(indexed bytes32,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+        - event: SubscriptionStarted(indexed bytes32,indexed bytes32,indexed
+            bytes32,uint256,uint256,uint256)
           handler: handleSubscriptionStarted
-        - event: SubscriptionFinished(indexed bytes32,indexed bytes32,indexed bytes32,uint256,uint256,uint256)
+        - event: SubscriptionFinished(indexed bytes32,indexed bytes32,indexed
+            bytes32,uint256,uint256,uint256)
           handler: handleSubscriptionFinished
       file: ./src/subscriptions.ts
-
-  # Profiles data source
   - kind: ethereum
     name: ProfilesModule
-    network: mumbai
+    network: matic
     source:
-      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: ProfilesModule
-      startBlock: 36481516
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      startBlock: 44638824
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -113,22 +108,22 @@ dataSources:
       eventHandlers:
         - event: ProfileCreated(indexed address,indexed address,uint256,bytes32,bytes32)
           handler: handleProfileCreated
-        - event: PermissionGranted(indexed bytes32,indexed bytes32,indexed address,address)
+        - event: PermissionGranted(indexed bytes32,indexed bytes32,indexed
+            address,address)
           handler: handlePermissionGranted
-        - event: PermissionRevoked(indexed bytes32,indexed bytes32,indexed address,address)
+        - event: PermissionRevoked(indexed bytes32,indexed bytes32,indexed
+            address,address)
           handler: handlePermissionRevoked
         - event: AllPermissionsRevoked(indexed bytes32,indexed address)
           handler: handleAllPermissionsRevoked
       file: ./src/profiles.ts
-
-  # Grateful profile NFT data source
   - kind: ethereum
     name: GratefulProfile
-    network: mumbai
+    network: matic
     source:
-      address: "0xB093e89F0c71666Af197Bc5cC5819E5D147290eb"
       abi: GratefulProfile
-      startBlock: 36481516
+      address: "0x0e52B7B1f8395c13Bad872d14405f6A073ABA472"
+      startBlock: 44638824
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -142,15 +137,13 @@ dataSources:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleProfileTransfer
       file: ./src/profiles.ts
-
-  # Liquidations data source
   - kind: ethereum
     name: LiquidationsModule
-    network: mumbai
+    network: matic
     source:
-      address: "0xC7882202840af8E994aB72Df7d19778C4E0e1287"
       abi: LiquidationsModule
-      startBlock: 36481516
+      address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+      startBlock: 44638824
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -161,6 +154,7 @@ dataSources:
         - name: LiquidationsModule
           file: ./abis/modules/LiquidationsModule.sol/LiquidationsModule.json
       eventHandlers:
-        - event: SubscriptionLiquidated(indexed bytes32,indexed bytes32,indexed bytes32,bytes32,uint256,uint256,uint256)
+        - event: SubscriptionLiquidated(indexed bytes32,indexed bytes32,indexed
+            bytes32,bytes32,uint256,uint256,uint256)
           handler: handleSubscriptionLiquidated
       file: ./src/liquidations.ts
