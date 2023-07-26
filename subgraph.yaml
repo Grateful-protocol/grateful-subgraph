@@ -133,6 +133,8 @@ dataSources:
       abis:
         - name: GratefulProfile
           file: ./abis/modules/associated-systems/GratefulProfile.sol/GratefulProfile.json
+        - name: ProfilesModule
+          file: ./abis/modules/ProfilesModule.sol/ProfilesModule.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleProfileTransfer

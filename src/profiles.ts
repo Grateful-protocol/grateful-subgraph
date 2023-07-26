@@ -11,6 +11,7 @@ import {
   PermissionRevoked,
   ProfileCreated,
 } from "../generated/ProfilesModule/ProfilesModule";
+import { ProfilesModule } from "../generated/GratefulProfile/ProfilesModule";
 import { Transfer } from "../generated/GratefulProfile/GratefulProfile";
 import {
   ProfilePermission,
@@ -47,23 +48,18 @@ function trackProfilesCreated(owner: Address): void {
   tracker.save();
 }
 
-function getProfileId(profileAddress: Address, tokenId: BigInt): Bytes {
-  const tupleArray: Array<ethereum.Value> = [
-    ethereum.Value.fromAddress(profileAddress),
-    ethereum.Value.fromUnsignedBigInt(tokenId),
-  ];
-
-  const encoded = ethereum.encode(
-    ethereum.Value.fromFixedSizedArray(tupleArray)
-  )!;
-
-  const profileId = crypto.keccak256(encoded);
-
-  return Bytes.fromByteArray(profileId);
-}
-
 export function handleProfileTransfer(event: Transfer): void {
-  const profileId = getProfileId(event.address, event.params.tokenId);
+  if (event.params.from.toString() === Address.fromI32(0).toHexString()) {
+    return;
+  }
+
+  const contractAddress = Address.fromString(
+    "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
+  );
+
+  const contract = ProfilesModule.bind(contractAddress);
+
+  const profileId = contract.getProfileId(event.address, event.params.tokenId);
 
   const profile = Profile.load(profileId);
 
