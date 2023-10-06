@@ -8,8 +8,9 @@
     "create-local": "graph create --node http://localhost:8020/ grateful-protocol/grateful",
     "remove-local": "graph remove --node http://localhost:8020/ grateful-protocol/grateful",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 grateful-protocol/grateful",
-    "deploy-dev": "graph deploy --network mumbai --product hosted-service grateful-protocol/grateful-dev",
-    "deploy-prod": "graph deploy --network matic --product hosted-service grateful-protocol/grateful",
+    "deploy-mumbai": "graph deploy --network mumbai --product hosted-service grateful-protocol/grateful-dev",
+    "deploy-polygon": "graph deploy --network matic --product hosted-service grateful-protocol/grateful",
+    "deploy-op-goerli": "graph deploy --network optimism-goerli --product hosted-service grateful-protocol/grateful-op-goerli",
     "test": "graph test"
   },
   "dependencies": {
