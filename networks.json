@@ -76,5 +76,31 @@
       "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
       "startBlock": 15583364
     }
+  },
+  "optimism": {
+    "VaultsModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 110672944
+    },
+    "FundsModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 110672944
+    },
+    "SubscriptionsModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 110672944
+    },
+    "ProfilesModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 110672944
+    },
+    "GratefulProfile": {
+      "address": "0x0e52B7B1f8395c13Bad872d14405f6A073ABA472",
+      "startBlock": 110672944
+    },
+    "LiquidationsModule": {
+      "address": "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09",
+      "startBlock": 110672944
+    }
   }
 }

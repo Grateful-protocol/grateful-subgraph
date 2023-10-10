@@ -11,6 +11,7 @@
     "deploy-mumbai": "graph deploy --network mumbai --product hosted-service grateful-protocol/grateful-dev",
     "deploy-polygon": "graph deploy --network matic --product hosted-service grateful-protocol/grateful",
     "deploy-op-goerli": "graph deploy --network optimism-goerli --product hosted-service grateful-protocol/grateful-op-goerli",
+    "deploy-optimism": "graph deploy --network optimism --product hosted-service grateful-protocol/grateful-optimism",
     "test": "graph test"
   },
   "dependencies": {

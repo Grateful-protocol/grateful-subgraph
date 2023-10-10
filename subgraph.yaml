@@ -5,11 +5,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: VaultsModule
-    network: optimism-goerli
+    network: optimism
     source:
       abi: VaultsModule
       address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
-      startBlock: 15583364
+      startBlock: 110672944
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -37,11 +37,11 @@ dataSources:
       file: ./src/vaults.ts
   - kind: ethereum
     name: FundsModule
-    network: optimism-goerli
+    network: optimism
     source:
       abi: FundsModule
       address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
-      startBlock: 15583364
+      startBlock: 110672944
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -61,11 +61,11 @@ dataSources:
       file: ./src/funds.ts
   - kind: ethereum
     name: SubscriptionsModule
-    network: optimism-goerli
+    network: optimism
     source:
       abi: SubscriptionsModule
       address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
-      startBlock: 15583364
+      startBlock: 110672944
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -90,11 +90,11 @@ dataSources:
       file: ./src/subscriptions.ts
   - kind: ethereum
     name: ProfilesModule
-    network: optimism-goerli
+    network: optimism
     source:
       abi: ProfilesModule
       address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
-      startBlock: 15583364
+      startBlock: 110672944
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -119,11 +119,11 @@ dataSources:
       file: ./src/profiles.ts
   - kind: ethereum
     name: GratefulProfile
-    network: optimism-goerli
+    network: optimism
     source:
       abi: GratefulProfile
       address: "0x0e52B7B1f8395c13Bad872d14405f6A073ABA472"
-      startBlock: 15583364
+      startBlock: 110672944
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -141,11 +141,11 @@ dataSources:
       file: ./src/profiles.ts
   - kind: ethereum
     name: LiquidationsModule
-    network: optimism-goerli
+    network: optimism
     source:
       abi: LiquidationsModule
       address: "0xa503A55eb196AAaE0Baa6AE68A4710A4e990df09"
-      startBlock: 15583364
+      startBlock: 110672944
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
